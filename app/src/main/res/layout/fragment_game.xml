@@ -9,7 +9,7 @@
 
         <variable
             name="game"
-            type="com.example.navigation.GameFragment" />
+            type="com.example.androidtrivia.GameFragment" />
     </data>
 
     <ScrollView
