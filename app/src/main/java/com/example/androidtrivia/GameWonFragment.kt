@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.androidtrivia.GameWonFragmentArgs
 import com.example.androidtrivia.databinding.FragmentGameWonBinding
 
 
