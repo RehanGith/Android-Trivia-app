@@ -1,5 +1,6 @@
 package com.example.androidtrivia
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +21,18 @@ class GameWonFragment : Fragment() {
         binding.nextMatchButton.setOnClickListener { view: View ->
             Navigation.findNavController(view).popBackStack()
         }
-        val args = GameWonFragmentArgs.fromBundle(requireArguments())
-        Toast.makeText(context, "numOfQuestion: ${args.numQuestion} , CorrectAnswer: ${args.numCorrect}", Toast.LENGTH_LONG)
+        setHasOptionsMenu(true)
         return binding.root
     }
+    private fun getSharedIntent(): Intent {
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT,
+            getString(R.string.share_success_text, args.numCorrect, args.numQuestion))
+        return shareIntent
+    }
+    private fun shareSuccess() {
+        startActivity(getSharedIntent())
+    }
+
 }
