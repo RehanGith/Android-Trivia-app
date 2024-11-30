@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -30,10 +31,10 @@ class GameWonFragment : Fragment() {
     }
     private fun getSharedIntent(): Intent {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT,
-            getString(R.string.share_success_text, args.numCorrect, args.numQuestion))
-        return shareIntent
+
+        return ShareCompat.IntentBuilder.from(requireActivity()).
+        setText(getString(R.string.share_success_text,
+        args.numCorrect, args.numQuestion)).setType("text/plain").intent
     }
     private fun shareSuccess() {
         startActivity(getSharedIntent())
