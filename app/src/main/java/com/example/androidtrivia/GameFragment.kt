@@ -33,7 +33,7 @@ class GameFragment : Fragment() {
             answers = listOf("Gradle", "Graddle", "Grodle", "Groyle")),
         Question(text = "Android vector format?",
             answers = listOf("VectorDrawable", "AndroidVectorDrawable", "DrawableVector", "AndroidVector")),
-        Question(text = "Android Navigation Component?",
+        Question(text = "Android androidtrivia Component?",
             answers = listOf("NavController", "NavCentral", "NavMaster", "NavSwitcher")),
         Question(text = "Registers app with launcher?",
             answers = listOf("intent-filter", "app-registry", "launcher-registry", "app-launcher")),
