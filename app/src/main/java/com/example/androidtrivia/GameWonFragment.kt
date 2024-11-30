@@ -1,5 +1,6 @@
 package com.example.androidtrivia
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -40,9 +41,13 @@ class GameWonFragment : Fragment() {
         startActivity(getSharedIntent())
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
+        if(null == getSharedIntent().resolveActivity(requireActivity().packageManager)) {
+            menu.findItem(R.id.share)?.isVisible = false
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
